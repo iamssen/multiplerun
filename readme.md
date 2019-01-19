@@ -32,6 +32,6 @@ npm run multiplerun-test
 
 If you have installed [iTerm.app](https://www.iterm2.com/) on your Mac. You can see like this
 
-![iTerm Example](./readme-assets/iTerm.png)
+![iTerm Example](https://raw.githubusercontent.com/iamssen/multiplerun/master/readme-assets/iTerm.png)
 
 Or those commands will be executed via default terminal app (`cmd.exe` or `Terminal.app`)
