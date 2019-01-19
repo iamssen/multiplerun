@@ -1,0 +1,18 @@
+#!/usr/bin/env node
+const fs = require('fs');
+const path = require('path');
+const multiplerun = require('../index');
+
+const packageJsonPath = path.join(process.cwd(), 'package.json');
+
+if (!fs.existsSync(packageJsonPath)) {
+  throw new Error(`💀 Undefined "${packageJsonPath}" file.`);
+}
+
+const {multiplerun: layout} = JSON.parse(fs.readFileSync(packageJsonPath, {encoding: 'utf8'}));
+
+if (!layout) {
+  throw new Error(`💀 Undefined "multiplerun" option in "${packageJsonPath}" file.`);
+}
+
+multiplerun(layout[process.argv[2]]);

@@ -1,0 +1,25 @@
+{
+  "name": "multiplerun",
+  "version": "0.1.3",
+  "description": "Run multiple commands on multiple terminals (or iTerm split panes)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "multiplerun": "./bin/multiplerun"
+  },
+  "author": "Seoyeon Lee",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iamssen/multiplerun.git"
+  },
+  "upstream": {
+    "git": "https://github.com/iamssen/multiplerun.git"
+  },
+  "bugs": {
+    "url": "https://github.com/iamssen/multiplerun/issues"
+  },
+  "homepage": "https://github.com/iamssen/multiplerun"
+}
