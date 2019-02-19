@@ -9,10 +9,12 @@ if (!fs.existsSync(packageJsonPath)) {
   throw new Error(`💀 Undefined "${packageJsonPath}" file.`);
 }
 
-const {multiplerun: layout} = JSON.parse(fs.readFileSync(packageJsonPath, {encoding: 'utf8'}));
+const {multiplerun: config} = JSON.parse(fs.readFileSync(packageJsonPath, {encoding: 'utf8'}));
 
-if (!layout) {
+if (!config) {
   throw new Error(`💀 Undefined "multiplerun" option in "${packageJsonPath}" file.`);
+} else if (!config[process.argv[2]]) {
+  throw new Error(`💀 Undefined "${process.argv[0]}" layout in multiplerun config.`);
 }
 
-multiplerun(layout[process.argv[2]]);
+multiplerun(config[process.argv[2]], process.cwd());

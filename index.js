@@ -1,12 +1,12 @@
 const {exec} = require('child_process');
 const Application = require('./Application');
 
-function useDefaultTerminal(layout) {
+function useDefaultTerminal(layout, basedir) {
   function run(command) {
     if (process.platform === 'darwin') {
-      exec(`osascript -e 'tell application "Terminal" to do script "cd ${process.cwd()}; ${command};"'`);
+      exec(`osascript -e 'tell application "Terminal" to do script "cd ${basedir}; ${command};"'`);
     } else if (process.platform === 'win32') {
-      exec(`start cmd /k "cd ${process.cwd()} && ${command}"`);
+      exec(`start cmd /k "cd ${basedir} && ${command}"`);
     }
   }
   
@@ -24,7 +24,7 @@ function useDefaultTerminal(layout) {
   }
 }
 
-function useIterm(layout) {
+function useIterm(layout, basedir) {
   const iTerm = Application('iTerm');
   
   iTerm.includeStandardAdditions = true;
@@ -43,29 +43,29 @@ function useIterm(layout) {
   
   layout.forEach(row => {
     if (typeof row === 'string') {
-      iTerm.windows.byId(windowId).currentTab().sessions.at(commandCount).write({text: `cd ${process.cwd()}; ${row};`});
+      iTerm.windows.byId(windowId).currentTab().sessions.at(commandCount).write({text: `cd ${basedir}; ${row};`});
       commandCount++;
     } else if (Array.isArray(row)) {
       row.forEach((command, c) => {
         if (c < row.length - 1) {
           iTerm.windows.byId(windowId).currentTab().sessions.at(commandCount).splitHorizontallyWithDefaultProfile();
         }
-        iTerm.windows.byId(windowId).currentTab().sessions.at(commandCount).write({text: `cd ${process.cwd()}; ${command};`});
+        iTerm.windows.byId(windowId).currentTab().sessions.at(commandCount).write({text: `cd ${basedir}; ${command};`});
         commandCount++;
       });
     }
   });
 }
 
-module.exports = function (layout) {
+module.exports = function (layout, basedir = process.cwd()) {
   if (process.platform === 'darwin') {
     try {
-      useIterm(layout);
+      useIterm(layout, basedir);
     } catch (error) {
-      useDefaultTerminal(layout);
+      useDefaultTerminal(layout, basedir);
     }
   } else if (process.platform === 'win32') {
-    useDefaultTerminal(layout);
+    useDefaultTerminal(layout, basedir);
   } else {
     console.error(`😭 Sorry! Only macOS and Windows are supported yet!`);
   }

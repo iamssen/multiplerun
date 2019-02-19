@@ -35,3 +35,21 @@ If you have installed [iTerm.app](https://www.iterm2.com/) on your Mac. You can 
 ![iTerm Example](https://raw.githubusercontent.com/iamssen/multiplerun/master/readme-assets/iTerm.png)
 
 Or those commands will be executed via default terminal app (`cmd.exe` or `Terminal.app`)
+
+# Run in script
+
+```js
+const multiplerun = require('multiplerun');
+
+multiplerun([
+  'echo multiplerun!',
+  [
+    'echo hello',
+    'echo world'
+  ]
+]);
+```
+
+API
+
+- `multiplerun(layout, [basedir = process.cwd()])`
