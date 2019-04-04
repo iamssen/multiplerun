@@ -1,5 +1,7 @@
 # Run multiple commands on multiple terminals (or iTerm split panes)
 
+[![DeepScan grade](https://deepscan.io/api/teams/3270/projects/4817/branches/38453/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=3270&pid=4817&bid=38453)
+
 Install
 
 ```sh
