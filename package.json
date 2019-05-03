@@ -1,11 +1,12 @@
 {
   "name": "multiplerun",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Run multiple commands on multiple terminals (or iTerm split panes)",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "types": "./multiplerun.d.ts",
   "bin": {
     "multiplerun": "./bin/multiplerun"
   },
