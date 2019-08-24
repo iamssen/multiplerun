@@ -1,6 +1,26 @@
 const {exec} = require('child_process');
 const Application = require('./Application');
 
+function useMerge(layout, basedir) {
+  function run(command) {
+    const proc = exec(`cd ${basedir}; ${command} &`);
+    proc.stdout.pipe(process.stdout);
+  }
+  
+  for (const row of layout) {
+    if (Array.isArray(row)) {
+      for (const command of row) {
+        if (typeof command !== 'string') {
+          throw new Error('???');
+        }
+        run(command);
+      }
+    } else if (typeof row === 'string') {
+      run(row);
+    }
+  }
+}
+
 function useDefaultTerminal(layout, basedir) {
   function run(command) {
     if (process.platform === 'darwin') {
@@ -68,5 +88,6 @@ module.exports = function (layout, basedir = process.cwd()) {
     useDefaultTerminal(layout, basedir);
   } else {
     console.error(`😭 Sorry! Only macOS and Windows are supported yet!`);
+    useMerge(layout, basedir);
   }
 };

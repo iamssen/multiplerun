@@ -1,6 +1,6 @@
 {
   "name": "multiplerun",
-  "version": "1.0.0",
+  "version": "1.1.2",
   "description": "Run multiple commands on multiple terminals (or iTerm split panes)",
   "main": "index.js",
   "scripts": {
