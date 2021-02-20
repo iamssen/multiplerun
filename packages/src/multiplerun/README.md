@@ -56,28 +56,7 @@ multiplerun(['echo multiplerun!', ['echo hello', 'echo world']]);
 
 API
 
-<!-- source ./src/multiplerun/types.ts -->
-
-[multiplerun/types.ts](src/multiplerun/types.ts)
-
-```ts
-//export type Term = 'iTerm' | 'terminal' | 'merge';
-
-export type Command = { command: string; wait: number; cwd: string };
-
-export type Commands = (Command | Command[])[];
-
-export type ConfigCommand =
-  | string
-  | { command: string; wait?: number; cwd?: string };
-
-export type ConfigCommands = (ConfigCommand | ConfigCommand[])[];
-
-export type Options = {
-  cwd?: string;
-  //termOrder?: Term[];
-};
-```
+<!-- source ./packages/src/multiplerun/types.ts -->
 
 <!-- /source -->
 

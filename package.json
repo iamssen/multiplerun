@@ -10,7 +10,7 @@
     "out/packages/*"
   ],
   "scripts": {
-    "build": "yarn workspace @workspace/packages run build --out-dir $PWD/out/packages",
+    "build": "cp README.md packages/src/multiplerun && yarn workspace @workspace/packages run build --out-dir $PWD/out/packages",
     "publish": "yarn run test && yarn run build && yarn workspace @workspace/packages run publish --out-dir $PWD/out/packages",
     "view": "yarn workspace @workspace/packages run view",
     "doctor": "yarn workspace @workspace/packages run doctor",
