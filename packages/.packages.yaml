@@ -1,8 +1,15 @@
 $schema: https://rocket-hangar.github.io/rocket-punch/schemas/packages.json
 
 multiplerun:
-  version: 2.0.0-alpha.1
-  tag: canary
+  version: 2.0.0
+  tag: latest
+  module: commonjs
+  packageJson:
+    bin:
+      multiplerun: ./bin/multiplerun.js
+    keywords:
+      - terminal
+      - iterm
 '@ssen/*':
-  version: 2.0.0-alpha.1
-  tag: canary
+  version: 2.0.0
+  tag: latest
