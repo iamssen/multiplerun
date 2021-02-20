@@ -49,7 +49,7 @@ npm run multiplerun-test
 # Run in script
 
 ```js
-const multiplerun = require('multiplerun');
+import multiplerun from 'multiplerun';
 
 multiplerun(['echo multiplerun!', ['echo hello', 'echo world']]);
 ```
