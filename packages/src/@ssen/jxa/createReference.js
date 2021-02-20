@@ -11,6 +11,7 @@ function dereference(path, args) {
     
     const cmd = `osascript -l JavaScript -e '${path}(${args})'`;
     const res = exec(cmd, {stdio: 'pipe'}).toString().trim();
+    
     if (res.indexOf('Application') === 0) {
       return createReference(res);
     } else {
@@ -25,7 +26,7 @@ function createInspector(path) {
   return () => `[object JXAReference => ${dereference(path + '.toString')}]`;
 }
 
-function createReference(path) {
+export function createReference(path) {
   return new Proxy(
     (recv, _, args) => dereference(path, args),
     {
@@ -38,12 +39,8 @@ function createReference(path) {
       },
       
       set(target, property, value, receiver) {
-        // TODO: Implement `set` proxy handler
+        return true;
       },
     },
   );
 }
-
-module.exports = function (handle) {
-  return createReference('Application("' + handle + '")');
-};
