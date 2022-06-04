@@ -1,5 +1,6 @@
 import { resolveCommands } from 'multiplerun/config/resolveCommands';
 import { ConfigCommands, Options } from 'multiplerun/types';
+import { describe, expect, test } from 'vitest';
 
 describe('resolveCommands', () => {
   test('should convert to regular commands', () => {

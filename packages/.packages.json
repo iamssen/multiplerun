@@ -1,0 +1,20 @@
+{
+  "$schema": "https://rocket-hangar.github.io/rocket-punch/schemas/packages.json",
+  "@ssen/*": {
+    "version": "3.0.0-alpha.1",
+    "tag": "canary"
+  },
+  "multiplerun": {
+    "version": "3.0.0-alpha.2",
+    "tag": "canary",
+    "packageJson": {
+      "bin": {
+        "multiplerun": "./bin/multiplerun.js"
+      },
+      "keywords": [
+        "terminal",
+        "iterm"
+      ]
+    }
+  }
+}

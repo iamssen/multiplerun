@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+yarn run markdown-source-import README.md "packages/**/*.md" --git-add
+
+cp README.md packages/src/multiplerun/README.md;
+
+yarn run lint-staged;
+
+yarn workspace @workspace/packages run precommit;

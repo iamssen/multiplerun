@@ -7,7 +7,7 @@ import {
 import multiplerun from './index';
 
 export async function run() {
-  const { _, cwd = process.cwd() } = yargs(process.argv.slice(2))
+  const { _, cwd = process.cwd() } = await yargs(process.argv.slice(2))
     .usage('Usage: $0 [file] <command>')
     .option('cwd', { type: 'string' }).argv;
 

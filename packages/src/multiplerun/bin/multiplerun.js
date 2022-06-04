@@ -1,2 +1,2 @@
 #!/usr/bin/env node
-require('../bin').run();
+require('../_commonjs/bin').run();

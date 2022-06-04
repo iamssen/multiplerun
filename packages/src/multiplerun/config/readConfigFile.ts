@@ -11,9 +11,9 @@ function readYaml(file: string): object | undefined {
 
   const source: string = fs.readFileSync(file, { encoding: 'utf8' });
 
-  const content: object | number | string | null | undefined = yaml.load(
+  const content = yaml.load(
     source,
-  );
+  ) as object | number | string | null | undefined;
 
   if (!content || typeof content === 'string' || typeof content === 'number') {
     throw new Error(`unspecified config: ${file}`);
