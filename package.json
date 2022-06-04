@@ -6,8 +6,7 @@
   "license": "MIT",
   "repository": "github:rocket-hangar/multiplerun",
   "workspaces": [
-    "packages",
-    "out/packages/*"
+    "packages"
   ],
   "scripts": {
     "build": "cp README.md packages/src/multiplerun && yarn workspace @workspace/packages run build",

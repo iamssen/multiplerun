@@ -1771,20 +1771,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ssen/iterm@^2.0.0, @ssen/iterm@workspace:out/packages/ssen__iterm":
-  version: 0.0.0-use.local
-  resolution: "@ssen/iterm@workspace:out/packages/ssen__iterm"
-  dependencies:
-    "@ssen/jxa": ^2.0.0
-  languageName: unknown
-  linkType: soft
-
-"@ssen/jxa@^2.0.0, @ssen/jxa@workspace:out/packages/ssen__jxa":
-  version: 0.0.0-use.local
-  resolution: "@ssen/jxa@workspace:out/packages/ssen__jxa"
-  languageName: unknown
-  linkType: soft
-
 "@ssen/prettier-config@npm:^2.0.1":
   version: 2.0.1
   resolution: "@ssen/prettier-config@npm:2.0.1"
@@ -5747,18 +5733,6 @@ __metadata:
   checksum: 82c8030a53af965cab48da22f1b0f894ef99e16ee680dabdfbd38d2dfacc3c8208c475203d747afd9e26db44118ed0221d5a0d65268c864f06d6efc7ac6df812
   languageName: node
   linkType: hard
-
-"multiplerun@workspace:out/packages/multiplerun":
-  version: 0.0.0-use.local
-  resolution: "multiplerun@workspace:out/packages/multiplerun"
-  dependencies:
-    "@ssen/iterm": ^2.0.0
-    js-yaml: ^4.1.0
-    yargs: ^17.5.1
-  bin:
-    multiplerun: ./bin/multiplerun.js
-  languageName: unknown
-  linkType: soft
 
 "nanoid@npm:^3.3.4":
   version: 3.3.4
