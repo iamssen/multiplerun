@@ -2,7 +2,7 @@
 
 If you have installed [iTerm.app](https://www.iterm2.com/) on your Mac. Your iTerm will opened like this.
 
-<img src="https://raw.githubusercontent.com/iamssen/multiplerun/master/readme-assets/iTerm.png" width="700"/>
+<img src="https://raw.githubusercontent.com/iamssen/multiplerun/master/readme-assets/iTerm.png" width="700" alt="iTerm example"/>
 
 If you don't have iTerm, those commands will be executed via default terminal app (`cmd.exe` or `Terminal.app`)
 
@@ -25,7 +25,6 @@ npx multiplerun test
 
 ```sh
 npm install multiplerun --save-dev
-# yarn add multiplerun --dev
 ```
 
 And add config to your `package.json`
@@ -56,10 +55,6 @@ multiplerun(['echo multiplerun!', ['echo hello', 'echo world']]);
 
 API
 
-<!-- source ./packages/src/multiplerun/types.ts -->
-
-[packages/src/multiplerun/types.ts](packages/src/multiplerun/types.ts)
-
 ```ts
 export type Command = { command: string; wait: number; cwd: string };
 
@@ -75,8 +70,6 @@ export type Options = {
   cwd?: string;
 };
 ```
-
-<!-- /source -->
 
 ```ts
 function multiplerun(commands: ConfigCommands, options?: Options);

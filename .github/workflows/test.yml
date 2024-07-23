@@ -16,48 +16,32 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        node: [14, 16, 18]
+        node: [14, 16, 18, 20]
         os: [ubuntu-latest, windows-latest, macos-latest]
 
     steps:
       - name: Clone Repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
-      - name: Set Node.js version
-        uses: actions/setup-node@v1
+      - name: Setup Node.js version
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
-
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
-
-      - uses: actions/cache@v2
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
+          cache: 'npm'
 
       - name: Version
         run: |
           node --version
-          yarn --version
+          npm --version
 
       - name: Install Dependencies
-        run: yarn install
+        run: npm ci
 
       - name: Build
-        run: yarn run build
+        run: npm run build
 
       - name: Lint
-        run: yarn run lint
+        run: npm run lint
 
       - name: Coverage Test
-        run: yarn run coverage
-
-#      - name: Upload coverage to Codecov
-#        uses: codecov/codecov-action@v1
-#        with:
-#          files: ./packages/coverage/coverage-final.json # ./{workspace}/coverage/coverage-final.json,./{workspace}/coverage/coverage-final.json...
+        run: npm run coverage

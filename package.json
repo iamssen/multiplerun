@@ -1,40 +1,70 @@
 {
-  "name": "@workspace/root",
-  "private": true,
-  "version": "2020.08.24",
-  "author": "SSen <i@ssen.name>",
+  "name": "multiplerun",
+  "version": "3.0.1",
+  "author": "SSen <iamssen@gmail.com>",
   "license": "MIT",
   "repository": "github:rocket-hangar/multiplerun",
-  "workspaces": [
-    "packages"
+  "bugs": "https://github.com/rocket-hangar/multiplerun/issues",
+  "homepage": "https://github.com/rocket-hangar/multiplerun",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=12"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "dist/main.js",
+  "types": "dist/main.d.ts",
+  "bin": {
+    "multiplerun": "./dist/bin.js"
+  },
+  "keywords": [
+    "terminal",
+    "iterm"
+  ],
+  "files": [
+    "dist/**",
+    "README.md"
   ],
   "scripts": {
-    "build": "cp README.md packages/src/multiplerun && yarn workspace @workspace/packages run build",
-    "publish": "yarn run test && yarn run build && yarn workspace @workspace/packages run publish",
-    "view": "yarn workspace @workspace/packages run view",
-    "doctor": "yarn workspace @workspace/packages run doctor",
-    "test": "yarn workspace @workspace/packages run test",
-    "coverage": "yarn workspace @workspace/packages run coverage",
+    "build": "rimraf dist && tsc",
+    "prepublishOnly": "npm run test",
+    "test": "vitest",
+    "coverage": "vitest run --coverage",
     "format": "prettier --write \"**/*.{js,ts,tsx}\"",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
-    "prepare": "husky install"
+    "precommit": "lint-staged",
+    "prepare": "husky"
   },
   "lint-staged": {
     "**/src/{**/*,*}.{ts,tsx}": [
+      "cross-env CI=true vitest related",
       "prettier --write",
       "eslint --max-warnings 0"
     ]
   },
   "devDependencies": {
-    "@handbook/markdown-source-import": "^1.1.0",
-    "@ssen/prettier-config": "^2.0.1",
-    "eslint": "^8.17.0",
-    "eslint-config-prettier": "^8.5.0",
+    "@types/eslint": "~8.56.11",
+    "@types/eslint-config-prettier": "~6.11.3",
+    "@types/js-yaml": "~4.0.9",
+    "@types/lint-staged": "~13.3.0",
+    "@types/node": "^20.14.9",
+    "@types/yargs": "^17.0.10",
+    "c8": "^10.1.2",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
     "eslint-config-react-app": "^7.0.1",
-    "husky": "^8.0.1",
-    "lint-staged": "^13.0.0",
-    "prettier": "^2.6.2",
-    "typescript": "^4.7.3"
-  },
-  "packageManager": "yarn@3.2.1"
+    "eslint-plugin-unicorn": "^54.0.0",
+    "husky": "^9.0.11",
+    "js-yaml": "^4.1.0",
+    "lint-staged": "^15.2.7",
+    "prettier": "^3.3.2",
+    "rimraf": "^5.0.7",
+    "tsx": "^4.15.7",
+    "typescript": "^5.5.2",
+    "vite": "^5.3.2",
+    "vitest": "^2.0.4",
+    "yargs": "^17.7.2"
+  }
 }

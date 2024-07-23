@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "downlevelIteration": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    // https://github.com/microsoft/TypeScript/issues/59024
+    //    "isolatedDeclarations": true,
+    //    "declaration": true,
+    //    "composite": true,
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "allowJs": true,
+    "declaration": true,
+    "baseUrl": "src",
+    "outDir": "dist"
+  },
+  "include": [
+    "src"
+  ]
+}
