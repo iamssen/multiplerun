@@ -1,3 +1,8 @@
 node_modules
 fixtures
-/examples/**
+out
+dev
+build
+src/**/public
+src/jxa/createReference.js
+dist
